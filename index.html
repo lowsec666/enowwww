@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Lovers+Quarrel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title> for him :3</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const phrases = [
+             "no >:[]",
+            "......",
+            "fym no.",
+            "ill fucking kill u if u keep pressing no",
+            "ehm ^^.....",
+            "bitch ass nigga u are gonna loose your legs and arms t9 <3 :3",
+            "t9 maybe u will see someone standing outside your window and maybe they will be holding some kinda gun idk and maybe that someone will kill u",
+            "BABY GIRL/MY POOKIEJUST SAY YES IM BEGGING U PLS PLS PLSPSLPSLPSLPLSPLSPLSPLSPSLPSLPSLPSLPSL",
+            "ok bye bye ",
+            "i emo now :[",
+            "just press yes atp pls :3",
+
+        ];
+
+        let noCount = 0;
+        let yesPressed = false;
+        let yesButtonSize = 16;
+
+        function handleYesClick() {
+            yesPressed = true;
+            render();
+        }
+
+        function handleNoClick() {
+            noCount += 1;
+            yesButtonSize += 20;
+            render();
+        }
+
+        function getNoButtonText() {
+            return phrases[Math.min(noCount, phrases.length - 1)];
+        }
+
+        function render() {
+            const root = document.getElementById('root');
+
+            if (yesPressed) {
+                root.innerHTML = `
+                    <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="bear-Kissing" />
+                    <div ='text'>YIPPIEEEEEEEEEEEEEE MWAHHHHHHH I LOVE U SM MY PRETTY,GORGEOUS,STUNNING,ABSOLOTELY BREATHTAKING BOY ^^ :3 suk mai dek bb :3 now go read my letters that ive wrote for u my sweet boy^^
+</div>
+                `;
+            } else {
+                root.innerHTML = `
+                    <img class='kiss' src="https://media1.tenor.com/m/al4a1pG1f8YAAAAC/jump-bear.gif" alt="bear with heart" />
+                    <div class='text'>Hai my pookie dookie poopie bear :3 will u be my valantine:3333🌹?</div>
+                    <div class='both-Button'>
+                        <button class='yesButton' style="font-size: ${yesButtonSize}px; background-color: rgb(248, 229, 89)" onclick="handleYesClick()">
+                            Yes bao bei :3
+                        </button>
+                        <button class='NoButton' onclick="handleNoClick()">
+                            ${getNoButtonText()}
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        render();
+    </script>
+
+</body>
+</html>
